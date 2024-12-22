@@ -18,13 +18,13 @@ book.Year=2022;
 console.log(book.Year);
 
 //Activity 3//
-//Task5
+//Task5\
 const library={
     name:"Silent library",
     books:{
         book1:"New world",
         book2:"The Eldian",
-        book3:"The tale of ,Jiraya, the Galent"
+        book3:"The tale of Jiraya, the Galent"
     }
 }
 console.log(library);

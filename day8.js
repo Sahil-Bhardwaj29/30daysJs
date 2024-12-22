@@ -65,8 +65,13 @@ console.log(object);
 //task9
 let var1="Name";
 let var2="age";
+const sym=Symbol("key1")
 const obj={
     [var1]:"Sahil",
-    [var2]:18
+    [var2]:18,
+    [sym]:"hi"
 };
-console.log(obj);
+console.log(typeof sym);
+const obj2={...obj,...object}
+console.log(obj2)
+const {Age}=object;
