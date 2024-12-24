@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="images">
+        <li><img src="https://th.bing.com/th/id/OIP.X8ClGzh2i8a0TvUac_mRuAHaEK?w=331&h=186&c=7&r=0&o=5&dpr=1.8&pid=1.7" id="luffy" alt="4" height="200px"></li>
+        <li><img src="https://i.pinimg.com/originals/a2/cf/1f/a2cf1fc9c4a90ac9b7c9d1306a0886ae.jpg" id="luffy2" alt="3" height="200px"></li>
+        <li><img src="https://images.pexels.com/photos/371633/pexels-photo-371633.jpeg?cs=srgb&dl=clouds-country-daylight-371633.jpg&fm=jpg" id="nature" alt="2" height="200px"></li>
+        <li><img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2023/01/a_spiral_amongst_thousands/24692034-1-eng-GB/A_Spiral_Amongst_Thousands_pillars.jpg" id="galaxy" alt="1" height="200px"></li>
+    </ul>
+</body>
+<script>
+    //attachEvent()
+    //jQuery-on
+
+
+    //don't use onclick
+    const luffy=document.getElementById("luffy")
+    luffy.addEventListener("click",function(e){
+        console.log(e)
+        alert("luffy is here!")
+    },false)
+
+    //type,timestamp,defaultPrevented
+    //target,toElement,scrElement,currentTarget
+    //clientx,clientY,screenX,screenY
+    //altkey, ctrlkey,shiftkey,keycode   ---- press or not
+
+    const luffy2=document.getElementById("luffy2")
+    luffy2.addEventListener("click",function(e){
+        alert("luffy2 is here!")
+        e.stopPropagation() // do not allow it to propagate further i.e image will not print
+    },false)
+    const image=document.getElementById("images")
+    image.addEventListener("click",function(){
+        alert("you are inside the list")
+    },false)
+    /*event Propagation:   false-- event bubbling,  true-- event capturing*/
+
+    //false ---> when we click on luffy2, first luffy2 will print then image will print
+    //           luffy2 is here
+    //           you are inside the list
+    
+    //true ----> you are inside the list
+    //           luffy2 is here
+
+    image.addEventListener("click",function(e){
+        console.log(e.target.tagName)// IMG,LI based on where we click
+        if(e.target.tagName==='IMG'){
+            let removeIt=e.target.parentNode
+            removeIt.remove()
+        }
+        
+
+    },false)
+    
+
+</script>
+</html>
